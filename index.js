@@ -1,7 +1,7 @@
 // Your code here
 function createEmployeeRecord (empDataArray) {
   const [firstName, familyName, title, payPerHour] = empDataArray
-  const empRecord = Object.assign ({}, 
+  return Object.assign ({}, 
     { firstName: firstName },
     { familyName: familyName },
     { title: title },
@@ -9,12 +9,10 @@ function createEmployeeRecord (empDataArray) {
     { timeInEvents: [] },
     { timeOutEvents: [] }
     )
-  return empRecord
 }
 
 function createEmployeeRecords (csvData) {
-  const empArray = csvData.map(createEmployeeRecord)
-  return empArray
+  return csvData.map(createEmployeeRecord)
 }
 
 function findEmployeeByFirstName (empRecords, nameStr) {
@@ -61,4 +59,3 @@ function allWagesFor (empRecord) {
 function calculatePayroll (empRecordsArray) {
   return empRecordsArray.reduce((i, e) => i + allWagesFor(e), 0)
 }
-
